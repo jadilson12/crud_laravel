@@ -1,4 +1,4 @@
-@extends('layouts.app',[ "current" => "categorias"])
+@extends('layouts.app',[ "current" => "produtos"])
 
 @section('body')
     <div class="card border">
@@ -8,21 +8,21 @@
                 <div class="row">
                     <div class="col form-group">
                         <label for="nome">Nome</label>
-                        <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite nome da produto">
+                        <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite nome da produto"  required>
                     </div>
                     <div class="col form-group">
                         <label for="descricao">Descrição</label>
-                        <input type="text" class="form-control" name="descricao" id="descricao" placeholder="Digite a descrição do produto">
+                        <input type="text" class="form-control" name="descricao" id="descricao" placeholder="Digite a descrição do produto"  required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col form-group">
                         <label for="quantidade">Quatidade</label>
-                        <input type="number" class="form-control" name="quantidade" id="quantidade" placeholder="20">
+                        <input type="number" class="form-control" name="quantidade" id="quantidade" placeholder="20"  required>
                     </div>
                     <div class="col form-group">
                         <label for="preco">Preço</label>
-                        <input type="number" class="form-control" name="preco" id="preco" placeholder=" 00,00">
+                        <input type="number" class="form-control" name="preco" id="preco" placeholder=" 00,00"  required>
                     </div>
                     <div class="col form-group">
                     <label for="categoria">Categoria</label>
