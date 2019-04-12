@@ -9,10 +9,10 @@
                 <a class="nav-link" href="/">Home</a>
             </li>
             <li @if ($current =="produtos") class="nav-item active" @else class="nav-item" @endif >
-                <a class="nav-link" href="{{route('produtos.index')}}">Produto</a>
+                <a class="nav-link" href="{{url('/produtos')}}">Produto</a>
             </li>
-            <li @if ($current =="categoria") class="nav-item active" @else class="nav-item" @endif >
-                <a class="nav-link" href="{{route('categorias.index')}}">Categoria</a>
+            <li @if ($current =="categorias") class="nav-item active" @else class="nav-item" @endif >
+                <a class="nav-link" href="{{url('/categorias')}}">Categoria</a>
             </li>
         </ul>
 

@@ -14,7 +14,7 @@
                     <th>Quatidade</th>
                     <th>Preço</th>
 {{--                    <th>ID Categoria</th>--}}
-                    <th>Criado</th>
+                    <th>Criado em</th>
                     <th>Ações</th>
 
                 </tr>
@@ -30,8 +30,8 @@
 {{--                        <td>{{$prod->categoria_id}}</td>--}}
                         <td>{{$prod->created_at}}</td>
                         <td>
-                            <a href="{{url('/produtos')}}/{{$prod->id}}" class="btn btn-sm btn-primary">Editar</a>
-                            <a href="{{url('/produtos')}}/{{$prod->id}}" class="btn btn-sm btn-danger">Apagar</a>
+                            <a href="/produtos/editar/{{$prod->id}}" class="btn btn-sm btn-primary">Editar</a>
+                            <a href="/produtos/apagar/{{$prod->id}}" class="btn btn-sm btn-danger">Apagar</a>
                         </td>
                     </tr>
                 @endforeach
@@ -40,7 +40,7 @@
                @endif
         </div>
         <div class="card-footer">
-            <a href="{{route('produtos.novo')}}" class="btn btn-sm btn-primary" role="button">Novo produto</a>
+            <a href="{{url('/produtos/novo')}}" class="btn btn-sm btn-primary" role="button">Novo produto</a>
         </div>
     </div>
 

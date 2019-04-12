@@ -1,4 +1,4 @@
-@extends('layouts.app',[ "current" => "categoria"])
+@extends('layouts.app',[ "current" => "categorias"])
 
 @section('body')
     <div class="card border">
@@ -10,7 +10,7 @@
                     <input type="text" class="form-control" name="nomeCategoria" id="nomeCategoria"  required placeholder="Nome da categoria">
                 </div>
                 <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
-                <button type="reset" class="btn btn-danger btn-sm">Cancelar</button>
+                <button type="cancel" class="btn btn-danger btn-sm">Cancelar</button>
             </form>
         </div>
     </div>
