@@ -21,6 +21,7 @@ class CreateProdutosTable extends Migration
             $table->float('preco');
 //            $table->unsignedBigInteger('categoria_id');
 //            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
