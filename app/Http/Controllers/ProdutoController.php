@@ -8,6 +8,15 @@ use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
+
+
+    // A função indexView mosta a lista de produtos
+
+    public function indexView()
+    {
+        return view('produtos');
+    }
+
     /**
      * Display a listing of the resource.
      *
