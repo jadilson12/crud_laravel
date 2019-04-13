@@ -14,10 +14,9 @@ class CreateProdutosTable extends Migration
     public function up()
     {
         Schema::create('produtos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('nome', 30);
-            $table->text('descricao')->nullable();
-            $table->integer('quantidade');
+            $table->increments('id');
+            $table->string('nome');
+            $table->integer('estoque');
             $table->float('preco');
             $table->unsignedBigInteger('categoria_id');
             $table->foreign('categoria_id')->references('id')->on('categorias');
