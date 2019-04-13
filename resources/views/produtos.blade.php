@@ -4,43 +4,72 @@
     <div class="card border">
         <div class="card-body">
             <h5 class="card-title">Cadastro de produtos</h5>
-               @if(count($produto) > 0)
-            <table class="table table-ordered table-hover">
+            <table class="table table-ordered table-hover" id="tabelaProdutos">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>id</th>
                     <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Quatidade</th>
+                    <th>Quantidade</th>
                     <th>Preço</th>
-{{--                    <th>ID Categoria</th>--}}
-                    <th>Criado em</th>
+                    <th>Categoria</th>
                     <th>Ações</th>
-
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($produto as $prod)
-                    <tr>
-                        <td>{{$prod->id}}</td>
-                        <td>{{$prod->nome}}</td>
-                        <td>{{$prod->descricao}}</td>
-                        <td>{{$prod->quantidade}}</td>
-                        <td>{{$prod->preco}}</td>
-{{--                        <td>{{$prod->categoria_id}}</td>--}}
-                        <td>{{$prod->created_at}}</td>
-                        <td>
-                            <a href="/produtos/editar/{{$prod->id}}" class="btn btn-sm btn-primary">Editar</a>
-                            <a href="/produtos/apagar/{{$prod->id}}" class="btn btn-sm btn-danger">Apagar</a>
-                        </td>
-                    </tr>
-                @endforeach
+
                 </tbody>
             </table>
-               @endif
         </div>
         <div class="card-footer">
-            <a href="{{url('/produtos/novo')}}" class="btn btn-sm btn-primary" role="button">Novo produto</a>
+            <button  class="btn  btn-primary" role="button" onclick="novoProduto()" >Novo produto</button>
+        </div>
+    </div>
+
+    <div class="modal" tabindex="-1" role="dialog" id="dlgProdutos">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form class="form-horizontal" id="formProduto">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Novo produto</h5>
+                    </div>
+                    <div class="modal-body">
+
+                        <input type="hidden" id="id" class="form-control">
+                        <div class="form-group">
+                            <label for="nomeProduto" class="control-label">Nome do Produto</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="nomeProduto" placeholder="Nome do produto">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="precoProduto" class="control-label">Preço</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="precoProduto" placeholder="Preço do produto">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quantidadeProduto" class="control-label">Quantidade</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="quantidadeProduto" placeholder="Quantidade do produto">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="categoriaProduto" class="control-label">Categoria</label>
+                            <div class="input-group">
+                                <select class="form-control" id="categoriaProduto" >
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <button type="cancel" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
