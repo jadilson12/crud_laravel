@@ -34,9 +34,9 @@ class ProdutoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   $categoria = Categoria::all();
+    {
+        //
 
-        return view('produtos.novo', compact('categoria'));
     }
 
     /**
@@ -77,11 +77,7 @@ class ProdutoController extends Controller
     public function edit($id)
     {
 
-        $produto = Produto::find($id);
-        if(isset($produto)){
-            return view('produtos.edita',compact('produto'));
-        }
-        return redirect('/produtos');
+
     }
 
     /**
