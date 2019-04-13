@@ -79,7 +79,7 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-
+        //
 
     }
 
@@ -99,11 +99,12 @@ class ProdutoController extends Controller
             $produto->descricao = $request->input('descricao');
             $produto->quantidade = $request->input('quantidade');
             $produto->preco = $request->input('preco');
-//            $produto->categoria_id = $request->input('categorias');
+            $produto->categoria_id = $request->input('categorias');
             $produto->save();
         }
-        return redirect('/produtos');
+        return response('Produto não encontado', 404);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -116,7 +117,8 @@ class ProdutoController extends Controller
         $produto = Produto::find($id);
         if(isset($produto)){
             $produto->delete();
+            return response('Ótimo, deu bom',200);
         }
-        return redirect('/produtos');
+        return response('erro, deu ruim',404);
     }
 }
