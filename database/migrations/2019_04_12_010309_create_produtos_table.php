@@ -19,8 +19,8 @@ class CreateProdutosTable extends Migration
             $table->text('descricao')->nullable();
             $table->integer('quantidade');
             $table->float('preco');
-//            $table->unsignedBigInteger('categoria_id');
-//            $table->foreign('categoria_id')->references('id')->on('categorias');
+            $table->unsignedBigInteger('categoria_id');
+            $table->foreign('categoria_id')->references('id')->on('categorias');
             $table->softDeletes();
             $table->timestamps();
         });
