@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/categorias', 'CategoriaController@indexJson');
+
+Route::resource('/produtos', 'ProdutoController');
