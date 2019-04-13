@@ -64,7 +64,11 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        //
+        $produto = Produto::find($id);
+        if(isset($produto)){
+            return json_encode($produto);
+        }
+        return response('Produto não encontado', 404);
     }
 
     /**
