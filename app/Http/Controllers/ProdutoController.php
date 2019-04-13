@@ -25,8 +25,7 @@ class ProdutoController extends Controller
     public function index()
     {
         $produto = Produto::all();
-        $categoria = Categoria::all();
-        return view('produtos.index',compact('produto','categoria'));
+        return $produto->toJson();
     }
 
     /**
