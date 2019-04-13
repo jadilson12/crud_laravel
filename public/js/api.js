@@ -14,7 +14,17 @@ function carregarCategorias() {
     });
 }
 
+function carregarProdutos(){
+    $.getJSON('/api/produtos', function (produtos) {
+        for (i = 0; i < produtos.length; i++) {
+            linha = montarLinha(produtos[i]);
+            $('#tabelaProdutos>tbody').append(linha);
+        }
+    });
+
+}
 
 $(function () {
     carregarCategorias();
+    carregarProdutos();
 });
