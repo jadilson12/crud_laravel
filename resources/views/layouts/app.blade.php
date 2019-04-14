@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 
     <title> Cadastro de produtos </title>
-{{--    <meta name="csrf-token" content="{{ csrf_token() }}">--}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
 <body>
