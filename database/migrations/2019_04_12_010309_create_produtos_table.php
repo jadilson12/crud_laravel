@@ -13,6 +13,8 @@ class CreateProdutosTable extends Migration
      */
     public function up()
     {
+        // modelo de branco UM para Muitos
+
         Schema::create('produtos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');

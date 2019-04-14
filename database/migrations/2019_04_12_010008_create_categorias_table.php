@@ -13,6 +13,8 @@ class CreateCategoriasTable extends Migration
      */
     public function up()
     {
+        // modelo de branco UM para Muitos
+
         Schema::create('categorias', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');
