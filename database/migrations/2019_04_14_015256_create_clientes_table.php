@@ -13,6 +13,8 @@ class CreateClientesTable extends Migration
      */
     public function up()
     {
+        // Esse é um modelo de tabela um para um
+
         Schema::create('clientes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nome');

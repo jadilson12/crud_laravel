@@ -13,6 +13,9 @@ class CreateEnderecosTable extends Migration
      */
     public function up()
     {
+
+        // Esse é um modelo de tabela um para um
+
         Schema::create('enderecos', function (Blueprint $table) {
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('clientes');
