@@ -49,6 +49,18 @@ $("#formProduto").submit( function(event){
     $("#dlgProdutos").modal('hide');
 });
 
+function editar(id) {
+    $.getJSON('/api/produtos/'+ id, function(data) {
+        console.log(data);
+        $('#id').val(data.id);
+        $('#nomeProduto').val(data.nome);
+        $('#precoProduto').val(data.preco);
+        $('#quantidadeProduto').val(data.estoque);
+        $('#categoriaProduto').val(data.categoria_id);
+        $('#dlgProdutos').modal('show');
+    });
+}
+
 function salvarProduto() {
     prod = {
         id : $("#id").val(),
