@@ -1,8 +1,3 @@
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
 
 function novoProduto() {
     $('#id').val('');
@@ -11,7 +6,6 @@ function novoProduto() {
     $('#quantidadeProduto').val('');
     $('#dlgProdutos').modal('show');
 }
-
 
 function carregarCategorias() {
     $.getJSON('/api/categorias', function(data) {
@@ -23,6 +17,61 @@ function carregarCategorias() {
     });
 }
 
+function montarLinha(p) {
+    var linha = "<tr>" +
+        "<td>" + p.id + "</td>" +
+        "<td>" + p.nome + "</td>" +
+        "<td>" + p.estoque + "</td>" +
+        "<td>" + p.preco + "</td>" +
+        "<td>" + p.categoria_id + "</td>" +
+        "<td>" +
+        '<button class="btn btn-sm btn-primary" onclick="editar(' + p.id + ')"> Editar </button> ' +
+        '<button class="btn btn-sm btn-danger" onclick="remover(' + p.id + ')"> Apagar </button> ' +
+        "</td>" +
+        "</tr>";
+    return linha;
+}
+
+function editar(id) {
+    $.getJSON('/api/produtos/'+id, function(data) {
+        console.log(data);
+        $('#id').val(data.id);
+        $('#nomeProduto').val(data.nome);
+        $('#precoProduto').val(data.preco);
+        $('#quantidadeProduto').val(data.estoque);
+        $('#categoriaProduto').val(data.categoria_id);
+        $('#dlgProdutos').modal('show');
+    });
+}
+
+function remover(id) {
+    $.ajax({
+        type: "DELETE",
+        url: "/api/produtos/" + id,
+        context: this,
+        success: function() {
+            console.log('Apagou OK');
+            linhas = $("#tabelaProdutos>tbody>tr");
+            e = linhas.filter( function(i, elemento) {
+                return elemento.cells[0].textContent == id;
+            });
+            if (e)
+                e.remove();
+        },
+        error: function(error) {
+            console.log(error);
+        }
+    });
+}
+
+function carregarProdutos() {
+    $.getJSON('/api/produtos', function(produtos) {
+        for(i=0;i<produtos.length;i++) {
+            linha = montarLinha(produtos[i]);
+            $('#tabelaProdutos>tbody').append(linha);
+        }
+    });
+}
 
 function criarProduto() {
     prod = {
@@ -31,33 +80,10 @@ function criarProduto() {
         estoque: $("#quantidadeProduto").val(),
         categoria_id: $("#categoriaProduto").val()
     };
-
     $.post("/api/produtos", prod, function(data) {
         produto = JSON.parse(data);
         linha = montarLinha(produto);
         $('#tabelaProdutos>tbody').append(linha);
-    });
-}
-
-$("#formProduto").submit( function(event){
-    event.preventDefault();
-    // if ($("#id").val() != '')
-    //     salvarProduto();
-    // else
-    criarProduto();
-
-    $("#dlgProdutos").modal('hide');
-});
-
-function editar(id) {
-    $.getJSON('/api/produtos/'+ id, function(data) {
-        console.log(data);
-        $('#id').val(data.id);
-        $('#nomeProduto').val(data.nome);
-        $('#precoProduto').val(data.preco);
-        $('#quantidadeProduto').val(data.estoque);
-        $('#categoriaProduto').val(data.categoria_id);
-        $('#dlgProdutos').modal('show');
     });
 }
 
@@ -94,52 +120,17 @@ function salvarProduto() {
     });
 }
 
-function montarLinha(p) {
-    var linha = "<tr>" +
-        "<td>" + p.id + "</td>" +
-        "<td>" + p.nome + "</td>" +
-        "<td>" + p.estoque + "</td>" +
-        "<td>" + p.preco + "</td>" +
-        "<td>" + p.categoria_id + "</td>" +
-        "<td>" +
-        '<button class="btn btn-sm btn-primary" onclick="editar(' + p.id +')"> Editar </button> ' +
-        '<button class="btn btn-sm btn-danger" onclick="remover(' + p.id +')"> Apagar </button> ' +
-        "</td>" +
-        "</tr>";
-    return linha;
-}
+$("#formProduto").submit( function(event){
+    event.preventDefault();
+    if ($("#id").val() != '')
+        salvarProduto();
+    else
+        criarProduto();
 
-function remover(id) {
-    $.ajax({
-        type: "DELETE",
-        url: "/api/produtos/" + id,
-        context: this,
-        success: function() {
-            console.log('Apagou OK');
-            linhas = $("#tabelaProdutos>tbody>tr");
-            e = linhas.filter( function(i, elemento) {
-                return elemento.cells[0].textContent == id;
-            });
-            if (e)
-                e.remove();
-        },
-        error: function(error) {
-            console.log(error);
-        }
-    });
-}
+    $("#dlgProdutos").modal('hide');
+});
 
-function carregarProdutos(){
-    $.getJSON('/api/produtos', function (produtos) {
-        for (i = 0; i < produtos.length; i++) {
-            linha = montarLinha(produtos[i]);
-            $('#tabelaProdutos>tbody').append(linha);
-        }
-    });
-
-}
-
-$(function () {
+$(function(){
     carregarCategorias();
     carregarProdutos();
-});
+})

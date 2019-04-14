@@ -76,6 +76,14 @@
 @endsection
 
 @section('javascript')
+
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            }
+        });
+    </script>
     <!-- Importante para uso do api -->
     <script src="{{ asset('js/api.js')}}" type="text/javascript" ></script>
 @endsection
