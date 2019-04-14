@@ -1,13 +1,10 @@
 <html>
 <head>
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title> Cadastro de produtos </title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
-
-    <!-- custom -->
-    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
-
-    <title> Cadastro de produtos </title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
 <body>
@@ -25,7 +22,9 @@
 <script src="{{ asset('js/app.js')}}" type="text/javascript" ></script>
 
 @hasSection('javascript')
+
     @yield('javascript')
+
 @endif
 
 </body>
