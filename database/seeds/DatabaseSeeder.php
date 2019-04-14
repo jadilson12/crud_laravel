@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
                   ProdutoSeeder::class,
                   DesenvolvedoresSeeder::class,
                   ProjetosSeeder::class,
-                  AlocacoesSeeder::class
+                  AlocacoesSeeder::class,
+                  ClientesSeeder::class
                 ]
             );
     }

@@ -23,7 +23,7 @@ class Categoria extends Model
     public function produto(){
         // realacionamento sendo esse de UM para muito
 
-        return $this->hasMany('App\Produto');
+        return $this->hasMany('App\Models\Produto');
     }
 
 }

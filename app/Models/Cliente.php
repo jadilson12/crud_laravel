@@ -10,6 +10,6 @@ class Cliente extends Model
 
         // atribuindo um unico endereço para o cliente
 
-        return $this->hasOne('App\Endereco');
+        return $this->hasOne('App\Models\Endereco');
     }
 }

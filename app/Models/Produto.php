@@ -13,7 +13,7 @@ class Produto extends Model
     protected $dates = ['deleted_at'];
 
     public function categoria(){
-        return $this->belongsTo('App\Categoria');
+        return $this->belongsTo('App\Models\Categoria');
     }
 
 }

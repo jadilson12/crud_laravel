@@ -10,6 +10,6 @@ class Endereco extends Model
 
         // relacionamento entre chave id cliente com id enderenço
 
-        return $this->belongsTo('App\Cliente');
+        return $this->belongsTo('App\Models\Cliente');
     }
 }
