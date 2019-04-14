@@ -93,16 +93,15 @@ class ProdutoController extends Controller
     public function update(Request $request, $id)
     {
         $produto = Produto::find($id);
-
-        if(isset($produto)){
+        if (isset($produto)) {
             $produto->nome = $request->input('nome');
-            $produto->descricao = $request->input('descricao');
-            $produto->quantidade = $request->input('quantidade');
             $produto->preco = $request->input('preco');
-            $produto->categoria_id = $request->input('categorias');
+            $produto->estoque = $request->input('estoque');
+            $produto->categoria_id = $request->input('categoria_id');
             $produto->save();
+            return json_encode($produto);
         }
-        return response('Produto não encontado', 404);
+        return response('Produto não encontrado', 404);
     }
 
 
