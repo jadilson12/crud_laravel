@@ -20,4 +20,10 @@ class Categoria extends Model
 
     protected $guarded = [ 'created_at', 'update_at'];
 
+    public function produto(){
+        // realacionamento sendo esse de UM para muito
+
+        return $this->hasMany('App\Produto');
+    }
+
 }
