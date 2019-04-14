@@ -13,6 +13,6 @@ class Desenvolvedor extends Model
     // Desenvolvedor pertecem vários projetos
 
     function projetos(){
-        return $this->belongsToMany('App\Models\Densevolvedor','alocacoes');
+        return $this->belongsToMany('App\Models\Densevolvedor','alocacoes')->withPivot('horas_semanais');
     }
 }
