@@ -13,14 +13,14 @@ class ProdutoSeeder extends Seeder
      */
     public function run()
     {
+
         // valores demos
 
         DB::table('produtos')->insert([
             [
-                'nome' => 'Notebook',
-                'descricao' => 'Completo com HD 500 GB',
-                'quantidade' => 3,
-                'preco' => 2.5,
+                'nome' => 'Teclado',
+                'estoque' => 4,
+                'preco' => 1,
                 'categoria_id' => 1,
                 'created_at' => date("Y-m-d H:m:s"),
                 'updated_at' => date("Y-m-d H:m:s"),
@@ -29,11 +29,10 @@ class ProdutoSeeder extends Seeder
 
         DB::table('produtos')->insert([
             [
-                'nome' => 'Teclado',
-                'descricao' => 'Para nootebook',
-                'quantidade' => 1,
-                'preco' => 4.5,
-                'categoria_id' => 1,
+                'nome' => 'Mause',
+                'estoque' => 4,
+                'preco' => 4,
+                'categoria_id' => 2,
                 'created_at' => date("Y-m-d H:m:s"),
                 'updated_at' => date("Y-m-d H:m:s"),
             ],
