@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
                 [
                   CategoriaSeeder::class,
                   ProdutoSeeder::class,
+                  DesenvolvedoresSeeder::class,
+                  ProjetosSeeder::class,
+                  AlocacoesSeeder::class
                 ]
             );
     }
