@@ -11,18 +11,10 @@
 |
 */
 
-    // Vamos usar lista de produto como index
-Route::get('/','ProdutoController@index');
+Route::get('/produtos','ProdutoController@indexView');
 
-
-Route::prefix('/produtos')->group(function () {
-    Route::get('/','ProdutoController@index');
-    Route::get('/novo','ProdutoController@create');
-    Route::get('/apagar/{id}','ProdutoController@destroy');
-    Route::get('/editar/{id}','ProdutoController@edit');
-    Route::post('/{id}','ProdutoController@update');
-    Route::post('/','ProdutoController@store');
-
+Route::get('/',function(){
+    return redirect('/produtos');
 });
 
 Route::prefix('/categorias')->group(function () {
