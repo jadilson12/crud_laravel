@@ -26,3 +26,5 @@ Route::prefix('/categorias')->group(function () {
     Route::post('/','CategoriaController@store');
 
 });
+
+Route::get('/clientes','ClienteController@index');

@@ -14,6 +14,9 @@
             <li @if ($current =="categorias") class="nav-item active" @else class="nav-item" @endif >
                 <a class="nav-link" href="{{url('/categorias')}}">Categoria</a>
             </li>
+            <li @if ($current =="clientes") class="nav-item active" @else class="nav-item" @endif >
+                <a class="nav-link" href="{{url('/clientes')}}">Clientes</a>
+            </li>
         </ul>
 
     </div>
