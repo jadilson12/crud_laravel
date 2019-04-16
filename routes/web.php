@@ -28,3 +28,4 @@ Route::prefix('/categorias')->group(function () {
 });
 
 Route::get('/clientes','ClienteController@index');
+Route::get('/json','ClienteController@indexjson');

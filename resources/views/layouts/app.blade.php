@@ -1,3 +1,4 @@
+
 <html>
 <head>
 
@@ -25,8 +26,10 @@
 @hasSection('javascript')
 
     @yield('javascript')
+    @yield('clientes')
 
 @endif
+
 
 </body>
 </html>
