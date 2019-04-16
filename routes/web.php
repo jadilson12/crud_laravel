@@ -29,3 +29,8 @@ Route::prefix('/categorias')->group(function () {
 
 Route::get('/clientes','ClienteController@index');
 Route::get('/json','ClienteController@indexjson');
+
+Route::get('/postagens','PostController@index');
+Route::post('/postagens','PostController@store');
+Route::delete('/postagens/{id}','PostController@destroy');
+Route::get('/postagens/download/{id}','PostController@download');
