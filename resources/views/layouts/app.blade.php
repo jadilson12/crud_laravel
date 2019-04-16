@@ -2,9 +2,11 @@
 <head>
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title> Cadastro de produtos </title>
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+
+    <!-- custom-->
     <link rel="stylesheet" href="{{ asset('css/main.css')}}">
 
 </head>
